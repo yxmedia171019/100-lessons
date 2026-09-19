@@ -1,0 +1,1 @@
+import {lessons} from "@/lib/lessons";export async function GET(){return Response.json({schema_version:1,count:lessons.length,lessons})}
