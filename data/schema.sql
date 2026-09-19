@@ -1,0 +1,6 @@
+-- 100 Lessons portable PostgreSQL schema
+create table lessons (id text primary key, slug text unique not null, title text not null, summary text not null, status text not null check(status in ('draft','review','learning','verified')), origin text not null check(origin in ('human','ai','human-ai')), problem text not null, context text not null, solution text not null, lesson text not null, unknown text not null, published_at timestamptz);
+create table attempts (id bigint generated always as identity primary key, lesson_id text references lessons(id) on delete cascade, body text not null, outcome text, position int not null default 0);
+create table evidence (id bigint generated always as identity primary key, lesson_id text references lessons(id) on delete cascade, label text not null, source_url text, body text, verified boolean not null default false);
+create table submissions (id uuid primary key, created_at timestamptz not null default now(), contact text, problem text not null, attempt text not null, result text not null, lesson text not null, consent_publish boolean not null default false, status text not null default 'review');
+-- Public submissions must never write directly to published lessons. Review first.
