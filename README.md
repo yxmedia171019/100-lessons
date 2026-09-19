@@ -30,7 +30,7 @@ Warm Ivory #F6F1E8 · Ink #181817 · Cobalt #3157D5 · Terracotta #C65D43 · Sag
 
 ## Status
 
-V1 foundation. The next milestone adds structured lesson data, archive browsing, contribution review and portable exports.
+Phase 2 live: structured lessons, archive browsing, lesson detail pages, JSON API/export seed, PostgreSQL schema and contribution rules. Public database submissions remain intentionally disabled until moderation and privacy controls are connected.
 
 ## License
 
